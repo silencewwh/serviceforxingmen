@@ -10,3 +10,15 @@ image{
   width:300rpx;
   border-radius: 50%;
 }
+text{
+  font-size: 50rpx;
+  margin-top: 10rpx;
+}
+.btn1{
+ margin-top: 20rpx;
+ width: 80%;
+ border-radius: 100rpx;
+ font-size: 30rpx;
+ background-color: rgb(49, 55, 112);
+ color:white;
+}
