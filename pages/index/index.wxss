@@ -6,9 +6,15 @@
   align-items: center;
   justify-content: space-around;
 }
-image{
-  width:300rpx;
+.userinfo{
+height: 80vh;
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+.img{
   border-radius: 50%;
+  height: 60vh;
 }
 text{
   font-size: 50rpx;
