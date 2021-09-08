@@ -15,6 +15,7 @@ justify-content: space-around;
 .img{
   border-radius: 50%;
   height: 60vh;
+  width: 60vh;
 }
 text{
   font-size: 50rpx;

@@ -6,9 +6,5 @@
 <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" class="btn1"> 登入 </button>
 <button wx:else class='btn1' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登入</button>
 </block>
-<block wx:else>
-  <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-</block>
 </view>
 </view>
