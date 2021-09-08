@@ -5,14 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    userInfo:{},
+    hasUserInfo:false,
+    canIUseGetUserProfile:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad() {
+    if(wx.getUserProfile){
+      this.setData({canIUseGetUserProfile:true
+      })
+    } 
+  },
+
+  getUserProfile(e){
+    wx.getUserProfile({
+      desc: '用于完善用户资料',
+      success:(res)=>{
+        this.setData({
+          userInfo:res.userInfo,
+          hasUserInfo:true
+        })
+      }
+    })
   },
 
   /**
@@ -63,15 +80,5 @@ Page({
   onShareAppMessage: function () {
     
   },
-  getMyInfo:function(e){
-    let info =e.detail.userInfo;
-    this.setData({
-      src:info.avatarUrl,
-      name:info.nickName
-    })
-  },
-  data:{
-    src:'/ui/小告示.png',
-    name:'欢迎使用小告示'
-  }
+  
 })
