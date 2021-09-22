@@ -29,3 +29,17 @@ text{
  background-color: rgb(49, 55, 112);
  color:white;
 }
+
+.userinfo-avartar{
+  height: 20vh;
+  width: 20vh;
+  border-radius: 50%;
+  background-color:rgb(49, 55, 112);
+  margin: auto;
+  display: block;
+}
+.loginafter{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
