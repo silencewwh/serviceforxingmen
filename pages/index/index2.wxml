@@ -1,2 +1,16 @@
 <!--pages/index/index2.wxml-->
-<text>pages/index/index2.wxml</text>
+<view class="page2text">
+<view class="left"></view>
+<view class="middle">
+<view>
+<text class="title">通知</text>
+</view>
+<view style="text-align: left;text-indent: 30px;">
+<text class="input">{{temptext}}</text>
+</view>
+<view style="text-align: right;">
+<text class="input">{{editor}}</text>
+</view>
+</view>
+<view class="right"></view>
+</view>
