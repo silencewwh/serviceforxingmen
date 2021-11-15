@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  temptext:"通知",
-  editor:"厦门理工1#345",
+    content:"",
+    showModal:false,
+
   },
 
   /**
@@ -67,6 +68,33 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+  
+  },
 
-  }
-})
+  content:function(e){
+    this.setData({
+      content:e.detail.value
+    })
+  },
+
+complete:function(e){
+
+
+},
+
+submit:function(){
+  this.setData({
+    showModal:true,
+  })
+},
+
+preventTouchMove:function(){
+
+},//阻止touchmove事件传递
+
+go:function(){
+  this.setData({
+    showModal:false,
+  })
+},//取消按钮
+  })
