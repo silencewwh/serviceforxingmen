@@ -1,2 +1,3 @@
 <!--pages/index/index4.wxml-->
 <text>pages/index/index4.wxml</text>
+<image src="{{userInfo.avatarUrl}}"></image>

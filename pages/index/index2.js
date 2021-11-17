@@ -77,8 +77,17 @@ Page({
     })
   },
 
-complete:function(e){
+upDate:function(e){
+    DB.collection('userlist') .add({
+      data:{
+          content:this.data.content,
 
+      },
+      success:res=>{console.log(res);
+      },
+      fail:err=>{console.log(err);},
+
+    })
 
 },
 

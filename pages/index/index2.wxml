@@ -28,6 +28,6 @@
 
 <view class="modalDlg" wx:if="{{showModal}}">
  <text>确认提交？~</text>
-  <button bindtap="complete">是</button>
+  <button bindtap="upDate">是</button>
   <button bindtap="go">否</button>
 </view>
