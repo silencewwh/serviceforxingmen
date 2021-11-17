@@ -1,4 +1,5 @@
 // pages/index/index2.js
+var pppp;
 Page({
 
   /**
@@ -14,7 +15,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var app=getApp();
+    pppp=require("./sdk/mpserverless.js")
   },
 
   /**
@@ -78,17 +80,12 @@ Page({
   },
 
 upDate:function(e){
-    DB.collection('userlist') .add({
-      data:{
-          content:this.data.content,
-
-      },
-      success:res=>{console.log(res);
-      },
-      fail:err=>{console.log(err);},
-
-    })
-
+  mpserverless.db.collection('article').insertOne({
+    title: 'tom',
+    content:'你' 
+})
+.then(res => {})
+.catch(console.error);
 },
 
 submit:function(){
@@ -106,4 +103,6 @@ go:function(){
     showModal:false,
   })
 },//取消按钮
+
   })
+  
