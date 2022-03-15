@@ -1,4 +1,10 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "l-button":"/dist/button/index",
+    "l-card":"/dist/card/index",
+    "l-tag":"/dist/tag/index",
+    "l-tabs":"/dist/tabs/index",
+    "l-tabpanel":"/dist/tabpanel/index"
+  },
   "navigationBarTitleText": "小小告示牌"
 }

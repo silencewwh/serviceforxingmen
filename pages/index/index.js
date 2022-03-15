@@ -1,4 +1,5 @@
 // index.js
+var app=getApp()
 Page({
 
   /**
@@ -27,7 +28,8 @@ Page({
           userInfo:res.userInfo,
           hasUserInfo:true,
         })
-      }
+        app.globalData.userInfo=res.userInfo
+      },
     })
   },
 switchpage(){

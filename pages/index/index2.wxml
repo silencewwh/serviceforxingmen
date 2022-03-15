@@ -1,33 +1,20 @@
 <!--pages/index/index2.wxml-->
-<view class="page2text">
-<view class="left"></view>      <!--左空-->
-
-<view class="middle">
-<view>
-<text class="title">通知</text>
-</view>
-<view style="text-align: left;">
-<input placeholder="标题(如：xxx防疫通知)" style="text-align: center;"></input>
-<textarea class="input" bindinput="content"></textarea> <!--文章内容-->
-<input placeholder="发布者" style="margin-top:10px;text-align: right;margin-right:5px;" maxlength="50"></input>
-<input placeholder="通知日期" style="margin-top: 10px;text-align: right;margin-bottom: 10px;margin-right: 5px;"></input>
-</view>
-</view>
-
-<view class="right"></view>         <!--右空-->
-
-
-<view style="margin-top: 10px;">
-<button style="color: white;background-color: red;border-radius:10px;width: 90%;" bindtap="submit">创建</button>
-</view>
-<text>{{content}}</text>
-</view>
-
-
-<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
-
-<view class="modalDlg" wx:if="{{showModal}}">
- <text>确认提交？~</text>
-  <button bindtap="upDate">是</button>
-  <button bindtap="go">否</button>
-</view>
+<l-tabs bind:linchange="changeTabs">
+        <l-tabpanel tab="我的发布" key="one" slot="one">
+            <l-card type="primary" l-class="card" wx:for="{{mycard}}" plaintext="{{true}}" wx:for-item="item" title="{{item.title}}" data-id="{{item._id}}" data-content="{{item.content}}" data-title="{{item.title}}" bindtap="opencontent">
+        <!-- 此处为content -->
+      <view class="avter-content">
+      {{item.content}}
+      </view>
+            </l-card>
+        </l-tabpanel>
+        <l-tabpanel tab="所有公告" key="two" slot="two">
+            
+      <l-card type="primary" l-class="card" wx:for="{{card}}" plaintext="{{true}}" wx:for-item="item" title="{{item.title}}" data-id="{{item._id}}" data-content="{{item.content}}" data-title="{{item.title}}" bindtap="opencontent">
+        <!-- 此处为content -->
+      <view class="avter-content">
+      {{item.content}}
+      </view>
+  </l-card>
+        </l-tabpanel>
+      </l-tabs>

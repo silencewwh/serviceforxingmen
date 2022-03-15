@@ -1,2 +1,4 @@
 <!--pages/index/index3.wxml-->
-<view></view>
+<view>
+<p>index3
+</p></view>

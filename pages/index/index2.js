@@ -1,22 +1,41 @@
 // pages/index/index2.js
-var pppp;
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    content:"",
     showModal:false,
-
+    banner:[],
+    mycard:[],
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var app=getApp();
-    pppp=require("./sdk/mpserverless.js")
+    var that = this;
+    var userInfo = app.globalData.userInfo;
+    console.log(app.globalData);
+    const db =wx.cloud.database()
+    const card =db.collection('tables')
+    card.get().then(res=>{
+        this.setData({
+          card:res.data
+        })
+    })
+
+    card.where({
+      author_name:userInfo.nickName,
+    })
+    .get()
+    .then(res=>{
+      this.setData({
+        mycard:res.data
+      })
+    })
   },
 
   /**
@@ -79,21 +98,6 @@ Page({
     })
   },
 
-upDate:function(e){
-  mpserverless.db.collection('article').insertOne({
-    title: 'tom',
-    content:'你' 
-})
-.then(res => {})
-.catch(console.error);
-},
-
-submit:function(){
-  this.setData({
-    showModal:true,
-  })
-},
-
 preventTouchMove:function(){
 
 },//阻止touchmove事件传递
@@ -103,6 +107,16 @@ go:function(){
     showModal:false,
   })
 },//取消按钮
+
+opencontent(e){
+  //传参
+  let content  = e.currentTarget.dataset.content;
+  let title  = e.currentTarget.dataset.title;  
+  wx.navigateTo({
+  url: '/pages/index/selectcontent?content=' + content +"&title="+title,
+})
+}
+
 
   })
   

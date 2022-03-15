@@ -1,0 +1,17 @@
+/* pages/index/selectcontent.wxss */
+
+.middle{
+  margin: 10px;
+  border: solid rgb(196, 0, 0);
+  text-align: center;
+  height: 80vh;
+  overflow-wrap: break-word;
+  display:flex; 
+  flex-direction:column;
+}
+
+.title{
+  font-size:40px;
+  color: rgb(196, 0, 0);
+  width: 100%;
+}

@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/index/index2",
     "pages/index/index3",
-    "pages/index/index4"
+    "pages/index/index4",
+    "pages/index/selectcontent"
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -13,15 +14,15 @@
     "list": [
       {
         "pagePath": "pages/index/index2",
-        "iconPath": "/ui/icon-发布.png",
-        "selectedIconPath": "/ui/icon-发布.png",
-        "text": "发布"
+        "iconPath": "/ui/icon-历史.png",
+        "selectedIconPath": "/ui/icon-历史.png",
+        "text": "历史"
       },
       {
         "pagePath": "pages/index/index3",
-        "iconPath": "ui/icon-历史.png",
-        "selectedIconPath": "ui/icon-历史.png",
-        "text": "历史"
+        "iconPath": "ui/icon-发布.png",
+        "selectedIconPath": "ui/icon-发布.png",
+        "text": "发布"
       },
       {
         "pagePath": "pages/index/index4",
@@ -31,7 +32,9 @@
       }
     ]
   },
-  "usingComponents": {"v-tabBar": "custom-tab-bar/index"},
+  "usingComponents": {
+    "v-tabBar": "custom-tab-bar/index"
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

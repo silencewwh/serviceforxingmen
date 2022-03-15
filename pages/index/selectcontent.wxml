@@ -1,0 +1,32 @@
+<!--pages/index/selectcontent.wxml-->
+<view class="page2text" style="height:100vh;padding-top: 2vh;">
+  <view class="middle">
+    <view>
+      <text class="title">通知</text>
+    </view>
+    <view><canvas id="myCanvas" type="2d"></canvas></view>
+    <view style="margin-top: 10rpx;font-weight: bold;"><text>{{title}}</text></view>
+    <view style="text-align: left;margin-top:30rpx;text-indent:40rpx;padding:10rpx;">
+      <view>
+        <text style="font-size:3.5mm;">{{content}}</text>
+      </view>
+    </view>
+
+
+  </view>
+
+
+
+
+
+
+  <view style="display:flex; flex-direction:column; height: 150px; padding: 10px; margin-bottom: 10px;">
+    <view style="background-color: #F1F1F1; flex: 1;"></view>
+    <view style="background-color: #E6E6E6; flex: 1;"></view>
+    <view style="background-color: #F1F1F1; flex: 1;"></view>
+  </view>
+
+</view>
+
+            
+
