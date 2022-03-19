@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "l-avatar":"../../dist/avatar/index",
-    "l-list":"../../dist/list/index"
+    "l-list":"../../dist/list/index",
+    "l-dialog":"../../dist/dialog/index",
+    "l-radio-group":"../../dist/radio-group",
+    "l-radio":"../../dist/radio"
   }
 }

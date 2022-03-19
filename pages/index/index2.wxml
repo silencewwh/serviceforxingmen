@@ -1,4 +1,5 @@
 <!--pages/index/index2.wxml-->
+
 <view class="page">
 
 <l-tabs  animated="{{true}}" swipeable="{{true}}" animated-for-line="{{true}}">

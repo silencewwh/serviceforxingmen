@@ -4,8 +4,7 @@
     "pages/index/index2",
     "pages/index/index3",
     "pages/index/index4",
-    "pages/index/selectcontent",
-    "pages/index/settingpage"
+    "pages/index/selectcontent"
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -34,7 +33,6 @@
     ]
   },
   "usingComponents": {
-    "l-tab-bar": "/dist/tab-bar/index"
   },
   "window": {
     "backgroundTextStyle": "light",

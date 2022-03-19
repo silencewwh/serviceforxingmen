@@ -8,6 +8,15 @@ Page({
   data: {
     nickName:"",
     avatar:"",
+    dialogShow:false,
+    rootFontSize: wx.getStorageSync('rootFontSize'),
+    pageFontSize: wx.getStorageSync('pageFontSize'),
+    items: [
+      //{value: "1rem", valuePage: "0.64rem", name: '小', checked: false,style: "0.7rem"},
+      //{value: "1.2rem", valuePage: "0.66rem", name: '中', checked: false,style: "0.8rem"},
+      //{value: "1.4rem", valuePage: "0.68rem", name: '大', checked: false,style: "0.9rem"},
+      //{value: "1.6rem", valuePage: "0.75rem", name: '特大', checked: false,style: "1rem"},
+    ]
   },
 
   /**
@@ -80,8 +89,19 @@ Page({
   },
 
 setting:function(){
-    wx.navigateTo({
-      url: '../../pages/index/settingpage',
+    this.setData({
+      dialogShow:true
     })
-  }
+  },
+
+  radioChange(e) {
+		console.log('radio发生change事件，携带value值为：', e.detail.value)
+		const items = this.data.items
+		for (let i = 0, len = items.length; i < len; ++i) {
+			items[i].checked = items[i].value === e.detail.value
+		}
+		this.setData({
+			items
+		})
+	},
 })
