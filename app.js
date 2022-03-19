@@ -15,6 +15,7 @@ App({
       })
     }
     this.getUserInfo();
+    this.getUserOpid();
   },
 
   /**
@@ -39,6 +40,7 @@ App({
   },
   globalData:{
     userInfo:null,
+    opid:null,
   },
   
   getUserInfo:function(cb){
@@ -54,6 +56,18 @@ App({
       }
     })
   },
+
+  getUserOpid:function(cb){
+    var that=this
+    wx.cloud.callFunction({
+      name: 'hellocloud',
+      complete: res => {
+        that.globalData.opid = res.result.openid
+        typeof cb == "function" && cb(that.globalData.opid)
+      }
+    })
+  }
+
 
 })
 

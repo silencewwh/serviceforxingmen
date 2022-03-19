@@ -1,1 +1,7 @@
 /* pages/index/index4.wxss */
+.box{
+height: 100vh;
+width: 80vh;
+margin: 5vh;
+  
+}

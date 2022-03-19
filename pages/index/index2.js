@@ -1,5 +1,6 @@
 // pages/index/index2.js
 var app = getApp()
+var cardId
 Page({
 
   /**
@@ -7,9 +8,9 @@ Page({
    */
   data: {
     showModal:false,
-    banner:[],
+    card:[],
     mycard:[],
-    
+    triggered: false,
   },
 
   /**
@@ -17,23 +18,24 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var userInfo = app.globalData.userInfo;
-    console.log(app.globalData);
+    var opid = app.globalData.opid;//获取全局变量opid
+/*     console.log(app.globalData); */
     const db =wx.cloud.database()
-    const card =db.collection('tables')
+    const card =db.collection('tables') //数据库
     card.get().then(res=>{
         this.setData({
-          card:res.data
+          card:res.data.reverse()
         })
+        
     })
 
     card.where({
-      author_name:userInfo.nickName,
+      _openid:opid,
     })
     .get()
     .then(res=>{
       this.setData({
-        mycard:res.data
+        mycard:res.data.reverse()
       })
     })
   },
@@ -42,7 +44,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    setTimeout(() => {
+      this.setData({
+        triggered: true,
+      })
+    }, 1000)
   },
 
   /**
@@ -55,6 +61,7 @@ Page({
       selected: 0
     })
   }
+
   },
 
   /**
@@ -75,14 +82,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
   },
 
   /**
@@ -92,31 +97,44 @@ Page({
   
   },
 
-  content:function(e){
-    this.setData({
-      content:e.detail.value
-    })
-  },
-
-preventTouchMove:function(){
-
-},//阻止touchmove事件传递
-
-go:function(){
-  this.setData({
-    showModal:false,
-  })
-},//取消按钮
 
 opencontent(e){
   //传参
   let content  = e.currentTarget.dataset.content;
-  let title  = e.currentTarget.dataset.title;  
+  let title  = e.currentTarget.dataset.title;
+  let author = e.currentTarget.dataset.author; 
+  let date = e.currentTarget.dataset.date;
+  let id = e.currentTarget.dataset.id;
   wx.navigateTo({
-  url: '/pages/index/selectcontent?content=' + content +"&title="+title,
+  url: '/pages/index/selectcontent?content=' + content +"&title="+title+"&author="+author+"&date="+date+"&id="+id,
 })
-}
+},
 
+onRefresh() {
+  if (this._freshing) return
+  this._freshing = true
+  setTimeout(() => {
+    this.setData({
+      triggered: false,
+    })
+    this._freshing = false
+  }, 1000)
+  this.onLoad()
+},
+
+deletecard:function(e){
+    var that=this
+    this.setData({
+      showModal:true,
+    })
+    this.cardId = e.currentTarget.dataset.id  //长按的卡片ID
+},
+confirm(e){
+  const db =wx.cloud.database()
+  const card =db.collection('tables') //数据库
+  card.doc(this.cardId).remove({})
+  this.onLoad()
+}
 
   })
   

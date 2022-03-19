@@ -1,17 +1,38 @@
 /* pages/index/selectcontent.wxss */
 
 .middle{
-  margin: 10px;
-  border: solid rgb(196, 0, 0);
   text-align: center;
-  height: 80vh;
+
+  height: auto !important;
   overflow-wrap: break-word;
   display:flex; 
   flex-direction:column;
+  background-color: white;
 }
 
 .title{
   font-size:40px;
-  color: rgb(196, 0, 0);
+  color: red;
   width: 100%;
+}
+.star{
+  border: 1px solid;
+  width: 300px; height: 10px;
+}
+
+.line{
+  border-bottom:5px double red;
+  flex: 1;
+  margin-left: 5px;
+  margin-right:5px;
+}
+
+.card{
+  height: 40px !important;
+  justify-content: center !important;
+  margin-top: 2px !important;
+}
+.cardimg{
+  height: 30px !important;
+  width: 30px !important;
 }

@@ -1,31 +1,45 @@
 <!--pages/index/selectcontent.wxml-->
-<view class="page2text" style="height:100vh;padding-top: 2vh;">
+<view class="page2text" style="height:120vh;padding-top: 1vh;background-color: #f5f5f5;">
   <view class="middle">
     <view>
       <text class="title">通知</text>
     </view>
-    <view><canvas id="myCanvas" type="2d"></canvas></view>
-    <view style="margin-top: 10rpx;font-weight: bold;"><text>{{title}}</text></view>
-    <view style="text-align: left;margin-top:30rpx;text-indent:40rpx;padding:10rpx;">
+   
+    <view style="display: flex;flex-direction: row;height: 13px;">  <!-- 星星 -->
+    <view class="line"></view> <!--左横线-->
+    <view style="height: 20px;">
+    <l-rate active-color="red" inActive-color="red" count="1" />
+    </view>
+    <view class="line"></view><!--右横线-->
+    </view>
+    
+    <view style="margin-top: 10px;font-weight: bold;margin-top:20px;"><text>{{title}}</text></view> <!-- 标题 -->
+   
+    <view style="text-align: left;margin-top:20rpx;padding:30rpx;">  <!-- 内容 -->
       <view>
-        <text style="font-size:3.5mm;">{{content}}</text>
+      <text style="font-size:4.5mm;" user-select="true">{{content}}</text>
+      </view>
+      <view style="margin-top: 20px;display: flex;flex-direction: column;">
+      <text style="font-size:3.5mm;text-align: right;margin-bottom:10px">{{author}}</text>
+      <text style="font-size:3.5mm;text-align: right;margin-bottom:10px">{{date}}</text>
       </view>
     </view>
 
 
   </view>
+<view style="display:flex;flex-direction: row;justify-content: space-around;margin-top: 15px;">
+  <l-button bg-color="lightgreen" open-type='share' >转发</l-button>
+  <l-button bg-color="#ff4040" bind:lintap="Tonew">我要发布</l-button>
+  <l-button bg-color="lightblue" bind:lintap="Tohome">首页</l-button>
+</view>
 
-
-
-
-
-
-  <view style="display:flex; flex-direction:column; height: 150px; padding: 10px; margin-bottom: 10px;">
-    <view style="background-color: #F1F1F1; flex: 1;"></view>
-    <view style="background-color: #E6E6E6; flex: 1;"></view>
-    <view style="background-color: #F1F1F1; flex: 1;"></view>
-  </view>
-
+<view style="margin-top:50px;">
+<view style="margin-bottom: 10px;margin-left: 13px;">已查看通知:</view>
+<view  wx:for="{{readername}}" wx:for-item="name" wx:key="index" >
+<l-card l-class="card" l-img-class="cardimg" l-title-class="cardtitle" type="avatar" l-class="card" title="{{name}}" image="{{readeravatar[index]}}">
+</l-card>
+</view>
+</view>
 </view>
 
             

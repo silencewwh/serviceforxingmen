@@ -2,9 +2,13 @@
   "usingComponents": {
     "l-button":"/dist/button/index",
     "l-card":"/dist/card/index",
-    "l-tag":"/dist/tag/index",
     "l-tabs":"/dist/tabs/index",
-    "l-tabpanel":"/dist/tabpanel/index"
+    "l-tabpanel":"/dist/tabpanel/index",
+    "l-tab-bar":"/dist/tab-bar/index",
+    "l-dialog":"/dist/dialog/index",
+    "l-notice-bar":"/dist/notice-bar/index"
   },
-  "navigationBarTitleText": "小小告示牌"
+  "navigationBarTitleText": "兴门服务",
+  "enablePullDownRefresh": true, 
+  "backgroundTextStyle": "light"
 }

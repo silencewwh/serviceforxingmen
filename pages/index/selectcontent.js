@@ -1,4 +1,5 @@
 // pages/index/selectcontent.js
+var app=getApp()
 Page({
 
   /**
@@ -7,6 +8,13 @@ Page({
   data: {
     content:undefined,
     title:undefined,
+    author:"",
+    date:undefined,
+    id:"",
+    opid:"",
+    nickName:"",
+    readername:"",
+    readeravatar:""
   },
 
   /**
@@ -15,8 +23,34 @@ Page({
   onLoad: function (options) {
     this.setData({
             content: options.content,
-            title:options.title
+            title:options.title,
+            author:options.author,
+            date:options.date,
+            id:options.id
           })
+      console.log(app.globalData.userInfo);
+      console.log(options.id)
+    
+    const db=wx.cloud.database()
+     const _ = db.command
+    const card =db.collection('tables')
+
+    card.where({_id:options.id}).update({
+      data:{
+        'reader.readername':_.addToSet(app.globalData.userInfo.nickName),
+        'reader.readeravatar':_.addToSet(app.globalData.userInfo.avatarUrl),
+      },//查看人名字头像上传
+      success: function() {
+        console.log(1)}     
+    })
+    card.doc(options.id)
+    .get()
+    .then(res=>{
+      this.setData({
+      readername:res.data.reader.readername,
+      readeravatar:res.data.reader.readeravatar,
+      })
+    })
 
   },
 
@@ -24,10 +58,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    const ctx=wx.createCanvasContext('myCanvas')
-    ctx.setFillStyle('red')
-    ctx.fillRect(10,10,150,75)
-    ctx.draw()
   },
 
   /**
@@ -70,6 +100,17 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
   
+ Tonew(){
+  wx.switchTab({
+    url:'../index/index3'
+  })
+ },
+  
+ Tohome(){
+  wx.switchTab({
+    url:'../index/index2'
+  })
+ }
 })

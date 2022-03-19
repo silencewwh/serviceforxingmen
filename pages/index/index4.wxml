@@ -1,3 +1,9 @@
 <!--pages/index/index4.wxml-->
-<text>pages/index/index4.wxml</text>
-<image src="{{userInfo.avatarUrl}}"></image>
+<view class="box">
+<l-avatar text="{{nickName}}" placement="right" src="{{avatar}}" ></l-avatar>
+<view style="margin-top: 5vh;">
+<l-list title="关注兴门社区" />
+<l-list title="感谢支持我们的工作" desc="厚德兴门，快乐兴门"/>
+<l-list title="设置字体大小" bind:lintap="setting"></l-list>
+</view>
+</view>

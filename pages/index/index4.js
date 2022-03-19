@@ -1,18 +1,29 @@
 // pages/index/index4.js
+var app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    nickName:"",
+    avatar:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var opid = app.globalData.opid;//获取全局变量opid
+    var that =this;
+    var nickName=app.globalData.userInfo.nickName;
+    var avatar=app.globalData.userInfo.avatarUrl;
+    this.setData({
+      nickName:nickName,
+      avatar:avatar
 
+    })
+    console.log(nickName,avatar);
   },
 
   /**
@@ -66,5 +77,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+setting:function(){
+    wx.navigateTo({
+      url: '../../pages/index/settingpage',
+    })
   }
 })

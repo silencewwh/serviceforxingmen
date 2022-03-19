@@ -1,4 +1,47 @@
 <!--pages/index/index3.wxml-->
-<view>
-<p>index3
-</p></view>
+
+<view class="page2text" style="height:100vh;padding-top: 2vh;background-color:#F1F1F1;">
+  <view class="middle" style="display: flex;flex-direction: column;">
+    <view style="flex:1;background-color:#ffffff;margin-bottom: 20rpx;">
+      <text class="title">通知</text>
+    </view>
+    <!--文章标题-->
+    <view style="flex:1;background-color:#ffffff;margin-bottom: 20rpx;display:flex;align-items:center;justify-content:center;">
+      <input placeholder="标题(如：xxx防疫通知)" style="font-weight: bold;" bindinput="getTitle"></input>
+    </view>
+    <!--文章内容-->
+    <view style="flex: 1;background-color:#ffffff;margin-bottom: 20rpx;">
+      <textarea class="input" bindinput="getContent" style="text-align:left;" maxlength="1000" confirm-type="return"></textarea>
+    </view>
+      <!-- 发布人 -->
+    <view style="flex:1;background-color:#ffffff;margin-bottom: 20rpx;display:flex;align-items:center;width: 55.5vh;">
+      <input placeholder="发布人:" style="font-weight:normal;text-align: left;margin-left: 1.2vh;width: 80vh;" bindinput="getauthor" ></input>
+    </view>
+      <!--发布时间-->
+      <view style="flex: 1;background-color:#ffffff;margin-bottom: 20rpx; display: flex;flex-direction:row-reverse;height:5vh;align-items:center;">
+      <picker mode="date" value="{{date}}" start="2020-01-01" end="2070-12-31" bindchange="bindDateChange">
+        <view class="picker" style="text-align: right;flex:1;">
+          {{date}}
+        </view>
+      </picker>
+      <view style="flex:1;text-align: left;margin-left: 15rpx;">通知日期:</view>
+      </view>
+    </view>
+    <view style="margin-top: 10px;flex:1">
+    <button style="color: white;background-color: red;border-radius:10px;width: 90%;" bindtap="submit">创建</button>
+    </view>
+  </view>
+
+
+  <l-dialog 
+  show="{{showModal}}"
+  type="confirm" 
+  show-title="{{false}}"
+  locked="{{false}}"
+  content="确定创建吗？" 
+  id="creatdialog"
+  bind:linconfirm="confirm"
+>
+  </l-dialog>
+
+  <l-message />

@@ -1,20 +1,49 @@
 <!--pages/index/index2.wxml-->
-<l-tabs bind:linchange="changeTabs">
+<view class="page">
+
+<l-tabs  animated="{{true}}" swipeable="{{true}}" animated-for-line="{{true}}">
         <l-tabpanel tab="我的发布" key="one" slot="one">
-            <l-card type="primary" l-class="card" wx:for="{{mycard}}" plaintext="{{true}}" wx:for-item="item" title="{{item.title}}" data-id="{{item._id}}" data-content="{{item.content}}" data-title="{{item.title}}" bindtap="opencontent">
-        <!-- 此处为content -->
+          <l-notice-bar show="{{true}}" type="roll">长按删除您创建的通知        长按删除您创建的通知</l-notice-bar>
+        <scroll-view scroll-y style="height:90vh" refresher-enabled="true" show-scrollbar="false" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh" >
+          <l-card class="card" type="primary" l-class="card" wx:for="{{mycard}}" plaintext="{{true}}" wx:for-item="item" title="{{item.title}}" data-id="{{item._id}}" data-content="{{item.content}}" data-title="{{item.title}}" data-author="{{item.author}}" data-date="{{item.time}}" bindtap="opencontent"  bindlongpress="deletecard">
+        <!-- 此处为发布人自己的content -->
       <view class="avter-content">
       {{item.content}}
       </view>
-            </l-card>
+      <view style="display: flex;flex-direction: row-reverse;justify-content: space-between;">
+      <view style="font-size: 3mm;color: gray; text-align: right;">{{item.upload_time}}</view>
+      <view style="font-size: 3mm;color: gray; text-align: right;">{{item.author}}</view>
+      </view>
+        </l-card>
+        
+      </scroll-view>
         </l-tabpanel>
-        <l-tabpanel tab="所有公告" key="two" slot="two">
-            
-      <l-card type="primary" l-class="card" wx:for="{{card}}" plaintext="{{true}}" wx:for-item="item" title="{{item.title}}" data-id="{{item._id}}" data-content="{{item.content}}" data-title="{{item.title}}" bindtap="opencontent">
-        <!-- 此处为content -->
+        
+      <l-tabpanel tab="所有通知" key="two" slot="two">
+        <scroll-view scroll-y style="height:90vh" refresher-enabled="true" show-scrollbar="false" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+          <l-card class="card" type="primary" l-class="card" wx:for="{{card}}" plaintext="{{true}}" wx:for-item="item" title="{{item.title}}" data-id="{{item._id}}" data-content="{{item.content}}" data-title="{{item.title}}" data-author="{{item.author}}" data-date="{{item.time}}"  bindtap="opencontent">
+        <!-- 此处为全部的content -->
       <view class="avter-content">
       {{item.content}}
       </view>
-  </l-card>
-        </l-tabpanel>
+      <view style="display: flex;flex-direction: row-reverse;justify-content: space-between;">
+      <view style="font-size: 3mm;color: gray; text-align: right;">{{item.upload_time}}</view>
+      <view style="font-size: 3mm;color: gray; text-align: right;">{{item.author}}</view>
+      </view>
+      </l-card>
+      </scroll-view>
+      </l-tabpanel>
+
       </l-tabs>
+    </view>
+
+    <l-dialog 
+  show="{{showModal}}"
+  type="confirm"  
+  show-title="{{false}}"
+  locked="{{false}}"
+  content="确定删除吗？" 
+  id="deletedialog"
+  bind:linconfirm="confirm"
+>
+  </l-dialog>

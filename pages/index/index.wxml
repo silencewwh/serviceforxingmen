@@ -1,14 +1,16 @@
 <!--index.wxml-->
+<view style="background-color:#db5050d8;height: 100vh;background-image: url('https://636c-cloud1-8gqur419b2e33da0-1307327855.tcb.qcloud.la/cloud.png?sign=ff4b38d546ee43357f7ffc67992a532b&t=1647520628');background-size: 280% 110%;">
 <view class ="container">
 <view class ='userInfo'>
 <block wx:if="{{!hasUserInfo}}">
-  <image wx:if="{{canIUseGetUserProfile}}" src="/ui/小告示.png" class="img"></image>
-<button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" class="btn1"> 登入 </button>
+  <image wx:if="{{canIUseGetUserProfile}}" src="https://636c-cloud1-8gqur419b2e33da0-1307327855.tcb.qcloud.la/%E5%B0%8F%E5%91%8A%E7%A4%BA.jpg?sign=31ad86d99ff38c187b1f8aea8a245f6b&t=1647520754" class="img"></image>
+<button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" class="btn1" style="position: relative; left: 0rpx; top: -2rpx"> 登入 </button>
 <button wx:else class='btn1' open-type="getUserInfo" bindgetuserinfo="getUserInfo">登入</button>
 </block>
 <block wx:else class="loginafter">
 <image bindtap="bindViewTap" src="{{userInfo.avatarUrl}}" mode="cover" class="userinfo-avartar"></image>
 <button class="btn1" bindtap="switchpage">首页</button>
 </block>
+</view>
 </view>
 </view>

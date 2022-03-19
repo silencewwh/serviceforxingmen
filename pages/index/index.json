@@ -1,4 +1,7 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "小小告示牌"
+  "navigationBarTitleText": "兴门服务",
+  "navigationBarBackgroundColor": "#db5050",
+  "navigationBarTextStyle": "white"
+  
 }
