@@ -6,22 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hasUserInfo:false,
-    canIUseGetUserProfile:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-    if(wx.getUserProfile){
-      this.setData({canIUseGetUserProfile:true
+  onLoad() {  
+      this.setData({login:false
       })
-    } 
   },
 
-  getUserProfile(e){
-    wx.getUserProfile({
+ login(e){
+/*     wx.getUserProfile({
       desc: '用于完善用户资料',
       success:(res)=>{
         this.setData({
@@ -30,6 +26,9 @@ Page({
         })
         app.globalData.userInfo=res.userInfo
       },
+    }) */
+    this.setData({
+      login:true
     })
   },
 

@@ -1,5 +1,6 @@
 // pages/index/index3.js
 var util=require('../../util.js');
+var app=getApp()
 var Today = util.formatDate(new Date());//今日日期
 var Totime =util.formatTime(new Date())//今日日期和时间
 Page({
@@ -15,12 +16,19 @@ Page({
     showModal:false,
     upload_time:null,
     n:0,
+    userInfo:{},
+    hasUserInfo:false,
+    canIUseGetUserProfile:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(wx.getUserProfile){
+      this.setData({canIUseGetUserProfile:true
+      })
+    } 
   this.setData({
     date:Today,
   })
@@ -99,9 +107,27 @@ Page({
     });    /*title*/
   },
   submit:function(){
-    this.setData({
-      showModal:true,
-    })
+    if (app.globalData.userInfo.nickName=="微信用户") {
+      wx.getUserProfile({
+        desc: '用于完善用户资料',
+        success:(res)=>{
+          this.setData({
+            userInfo:res.userInfo,
+            hasUserInfo:true,
+          })
+          app.globalData.userInfo=res.userInfo
+          this.setData({
+            showModal:true,
+          })
+        },
+      })
+    }
+ else{
+  this.setData({
+    showModal:true,
+  })
+ }
+    
   },
   getauthor(e){this.setData({
     author:e.detail.value,
@@ -148,16 +174,19 @@ Page({
           "reader":reader
         }
       })
+      setTimeout(function(){
+        wx.switchTab({
+        url: '../../pages/index/index2',
+        success: function(e) {  
+          var page = getCurrentPages().pop();  
+          if (page == undefined || page == null) return;  
+          page.onLoad(); }
+      })},1000)
       break
     }
     this.n=0
-    wx.switchTab({
-      url: '../../pages/index/index2',
-      success: function(e) {  
-        var page = getCurrentPages().pop();  
-        if (page == undefined || page == null) return;  
-        page.onLoad(); }
-    })
+    
+    
     
   }
 

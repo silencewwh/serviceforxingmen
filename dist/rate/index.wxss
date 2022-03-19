@@ -1,1 +1,1 @@
-.l-rate,.l-rate-star{display:inline-flex}.l-rate-star{position:relative}.icon-checked{position:absolute;overflow:hidden;display:flex}.image-item{width:80rpx;height:80rpx}
+.l-rate,.l-rate-star{display:inline-flex}.l-rate-star{position:relative}.icon-checked{position:absolute;overflow:hidden;display:flex}.image-item{width:calc(80rpx + 0.5 * (1rem - 16px));height:calc(80rpx + 0.5 * (1rem - 16px))}

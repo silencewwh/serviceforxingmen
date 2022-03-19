@@ -19,7 +19,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     var opid = app.globalData.opid;//获取全局变量opid
-/*     console.log(app.globalData); */
+    console.log(app.globalData);
     const db =wx.cloud.database()
     const card =db.collection('tables') //数据库
     card.get().then(res=>{
@@ -28,6 +28,7 @@ Page({
         })
         
     })
+    
 
     card.where({
       _openid:opid,
@@ -38,6 +39,11 @@ Page({
         mycard:res.data.reverse()
       })
     })
+
+    this.setData({
+      triggered:true
+    })
+
   },
 
   /**
@@ -100,6 +106,22 @@ Page({
 
 opencontent(e){
   //传参
+  if (app.globalData.userInfo.nickName=="微信用户") {
+    console.log(app.globalData);
+    wx.getUserProfile({
+      desc: '用于完善用户资料',
+      success:(res)=>{
+        this.setData({
+          userInfo:res.userInfo,
+        })
+        app.globalData.userInfo=res.userInfo
+        this.setData({
+          showModal:true,
+        })
+      },
+    })
+  }
+  console.log(app.globalData.hasUserInfo)
   let content  = e.currentTarget.dataset.content;
   let title  = e.currentTarget.dataset.title;
   let author = e.currentTarget.dataset.author; 
@@ -133,6 +155,9 @@ confirm(e){
   const db =wx.cloud.database()
   const card =db.collection('tables') //数据库
   card.doc(this.cardId).remove({})
+  this.setData({
+    triggered:true
+  })
   this.onLoad()
 }
 

@@ -1,1 +1,1 @@
-.error-text{font-size:22rpx;color:#f4516c;margin-right:20rpx;line-height:2}
+.error-text{font-size:calc(22rpx + 0.5 * (1rem - 16px));color:#f4516c;margin-right:20rpx;line-height:calc(2 + 0.5 * (1rem - 16px))}

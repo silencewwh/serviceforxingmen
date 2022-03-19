@@ -11,8 +11,6 @@ Page({
     author:"",
     date:undefined,
     id:"",
-    opid:"",
-    nickName:"",
     readername:"",
     readeravatar:""
   },
@@ -21,6 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     this.setData({
             content: options.content,
             title:options.title,
@@ -28,7 +27,6 @@ Page({
             date:options.date,
             id:options.id
           })
-      console.log(app.globalData.userInfo);
       console.log(options.id)
     
     const db=wx.cloud.database()

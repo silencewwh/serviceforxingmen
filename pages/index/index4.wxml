@@ -1,17 +1,9 @@
+<page-meta root-font-size="system"/>
 <!--pages/index/index4.wxml-->
 <view class="box">
 <l-avatar text="{{nickName}}" placement="right" src="{{avatar}}" ></l-avatar>
 <view style="margin-top: 5vh;">
 <l-list title="关注兴门社区" />
 <l-list title="感谢支持我们的工作" desc="厚德兴门，快乐兴门"/>
-<l-list title="设置字体大小" bind:lintap="setting"></l-list>
 </view>
 </view>
-
-<l-dialog title="设置字体大小" show="{{dialogShow}}">
-<l-radio-group placement="column" current="{{}}" bind:linchange="radioChange"	>
-    <l-radio key="1" l-class="radio"><view style="font-size: 4.5mm;">小</view></l-radio>
-    <l-radio key="2" l-class="radio"><view style="font-size: 5mm;">中</view></l-radio>
-    <l-radio key="3" l-class="radio"><view style="font-size: 5.5mm;">大</view></l-radio>
-</l-radio-group> 
-</l-dialog>

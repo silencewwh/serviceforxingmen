@@ -14,26 +14,27 @@ justify-content: space-around;
 }
 .img{
   border-radius: 50%;
-  height: 30vh;
-  width: 30vh;
+  height: calc(30vh + 0.5 * (1rem - 16px));
+  width: calc(30vh + 0.5 * (1rem - 16px));
 }
 text{
-  font-size: 50rpx;
+  font-size: calc(50rpx + 0.5 * (1rem - 16px));
   margin-top: 10rpx;
 }
 .btn1{
  margin-top: 20rpx;
  width: 80%;
  border-radius: 100rpx;
- font-size: 30rpx;
+ font-size: calc(30rpx + 0.5 * (1rem - 16px));
  background-color: rgb(81, 240, 107);
  color:white;
 }
 
 .userinfo-avartar{
-  height: 20vh;
-  width: 20vh;
+  height: calc(20vh + 0.5 * (1rem - 16px));
+  width: calc(20vh + 0.5 * (1rem - 16px));
   border-radius: 50%;
+  overflow: hidden;
   background-color:rgb(49, 55, 112);
   margin: auto;
   display: block;

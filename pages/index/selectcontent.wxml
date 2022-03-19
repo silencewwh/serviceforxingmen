@@ -1,3 +1,4 @@
+<page-meta root-font-size="system"/>
 <!--pages/index/selectcontent.wxml-->
 <view class="page2text" style="height:120vh;padding-top: 1vh;background-color: #f5f5f5;">
   <view class="middle">
@@ -17,11 +18,11 @@
    
     <view style="text-align: left;margin-top:20rpx;padding:30rpx;">  <!-- 内容 -->
       <view>
-      <text style="font-size:4.5mm;" user-select="true">{{content}}</text>
+      <text class="content" user-select="true">{{content}}</text>
       </view>
       <view style="margin-top: 20px;display: flex;flex-direction: column;">
-      <text style="font-size:3.5mm;text-align: right;margin-bottom:10px">{{author}}</text>
-      <text style="font-size:3.5mm;text-align: right;margin-bottom:10px">{{date}}</text>
+      <text  class="author">{{author}}</text>
+      <text  class="data">{{date}}</text>
       </view>
     </view>
 

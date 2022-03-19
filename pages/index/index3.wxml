@@ -1,3 +1,4 @@
+<page-meta root-font-size="system"/>
 <!--pages/index/index3.wxml-->
 <view class="page2text" style="height:100vh;padding-top: 2vh;background-color:#F1F1F1;">
   <view class="middle" style="display: flex;flex-direction: column;">
